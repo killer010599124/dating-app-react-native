@@ -1,0 +1,4 @@
+{
+    "java.compile.nullAnalysis.mode": "automatic",
+    "avdmanager.executable": "c:\\Users\\Dove\\.android\\avd\\Killer.ini"
+}
