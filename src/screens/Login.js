@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     signupTextCont: {
+        marginBottom:30,
         flexGrow: 1,
         justifyContent: 'center', alignItems: 'flex-end', paddingVertical: 15, flexDirection: 'row',
     },
