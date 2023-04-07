@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
         right: 0,
         bottom: 0,
         position: 'absolute',
+        
     },
     modalView: {
         flex: 1,
@@ -194,7 +195,8 @@ const styles = StyleSheet.create({
         margin: 48,
         elevation: 24,
         borderRadius: 2,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        borderRadius : 30
     },
     alertTitle: {
         margin: 24,

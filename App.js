@@ -19,6 +19,8 @@ import SignUp from "./src/screens/SignUp";
 import CreatePassword from "./src/screens/CreatePassword";
 import EnterPhone from "./src/screens/EnterPhone";
 import AddBestPhoto from "./src/screens/AddBestPhoto";
+import SendingPhoto from "./src/screens/SendingPhoto";
+import Broadcast from "./src/screens/Boradcast";
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -48,13 +50,15 @@ function HomeTabScreen() {
         ),
       })}
     >
+      <Tab.Screen name="Broadcast" component={Broadcast} options={{}} />
 
-      <Tab.Screen name="AddBestPhoto" component={AddBestPhoto} options={{}} />
-
+      <Tab.Screen name="SendingPhoto" component={SendingPhoto} options={{}}/>
+      <Tab.Screen name="AddBestPhoto" component={AddBestPhoto}  />
       <Tab.Screen name="EnterPhone" component={EnterPhone}  />
       <Tab.Screen name="CreatePassword" component={CreatePassword}  />
       <Tab.Screen name="SignUp" component={SignUp}  />
-      <Tab.Screen name="VerifyCode" component={VerifyCode}  />
+
+      <Tab.Screen name="VerifyCode" component={VerifyCode} />
       <Tab.Screen name="SignIn" component={SignIn}  />
       <Tab.Screen name="Introduction" component={HomeCarousel} />
       <Tab.Screen name="Splash" component={Splash} />
