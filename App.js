@@ -14,6 +14,11 @@ import HomeCarousel from "./src/screens/Introduction";
 import UserProfile from "./src/screens/UserProfile";
 import SignIn from "./src/screens/Login";
 import Chat from "./src/screens/Chat";
+import VerifyCode from "./src/screens/VerifyCode";
+import SignUp from "./src/screens/SignUp";
+import CreatePassword from "./src/screens/CreatePassword";
+import EnterPhone from "./src/screens/EnterPhone";
+import AddBestPhoto from "./src/screens/AddBestPhoto";
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -43,7 +48,14 @@ function HomeTabScreen() {
         ),
       })}
     >
-      <Tab.Screen name="SignIn" component={SignIn} options={{}} />
+
+      <Tab.Screen name="AddBestPhoto" component={AddBestPhoto} options={{}} />
+
+      <Tab.Screen name="EnterPhone" component={EnterPhone}  />
+      <Tab.Screen name="CreatePassword" component={CreatePassword}  />
+      <Tab.Screen name="SignUp" component={SignUp}  />
+      <Tab.Screen name="VerifyCode" component={VerifyCode}  />
+      <Tab.Screen name="SignIn" component={SignIn}  />
       <Tab.Screen name="Introduction" component={HomeCarousel} />
       <Tab.Screen name="Splash" component={Splash} />
       <Tab.Screen name="Explore" component={Explore}  />

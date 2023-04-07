@@ -5,16 +5,23 @@ import { StyleSheet, ScrollView, View, Dimensions, Text, Image, TouchableOpacity
 import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
-
-const SignIn = () => {
+import { Button } from '../components';
+const VerifyCode = () => {
     // signup() {
     //     Actions.signup()
     // }
+    const CODE_LENGTH = new Array(4).fill(0);
+
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
     };
-
+    const state = {
+        value: "",
+    };
+    const input = React.createRef();
+    const { value } = state;
+    const values = value.split("");
     useEffect(() => {
         Dimensions.addEventListener('change', onChange);
         return () => {
@@ -24,7 +31,7 @@ const SignIn = () => {
 
     return (
         <View style={styles.container}>
-
+            
             {/* <Text
                 style={{ fontWeight: 'bold',marginLeft :dimension?.width*0.1, marginTop: dimension?.height * 0.1, color: '#15224F', fontSize: 20, textAlign: 'left' }}>
                 Welcome Back!
@@ -33,20 +40,23 @@ const SignIn = () => {
                 style={{ width: dimension?.width * 0.7,marginLeft :dimension?.width*0.1, color: '#6E7077', fontWeight: '600', fontSize: 14, textAlign: 'left' }}>
                 Let's go for explore continues
             </Text> */}
-            <Subject title={'Welcome Back!'} content={"Let's go for explore continues"} />
-            
-            <Form type="Login"  />
-            <TouchableOpacity>
-                <Text style={{...styles.forgotButton, textAlign:'center',alignSelf : 'center', marginTop:dimension.height*0.12}}>Forgot password?</Text>
-            </TouchableOpacity>
-            <SocialConnect />
-            <View style={styles.signupTextCont}>
-                <Text style={styles.signupText}>Not a User? </Text>
-                <TouchableOpacity
-                // onPress={this.signup}
-                >
-                    <Text style={styles.signupButton}>Register here</Text></TouchableOpacity>
+            <Subject title={'Code Verification'} content={"Check your email for verification code, and you can continue."} />
+            <View style={{...styles.wrap, marginTop:dimension.height*0.25}}>
+                {CODE_LENGTH.map((v, index) => {
+                    const removeBorder =
+                        index === CODE_LENGTH.length  ? styles.noBorder : undefined;
+                    return (
+                        <View style={[styles.display, removeBorder]} key={index}>
+                            <Text style={styles.text}>{values[index] || ""}</Text>
+                        </View>
+                    );
+                })}
             </View>
+            <View style={{ position: 'absolute', alignSelf: 'center', marginTop: 300 }}>
+                <Button title={'Continue'} />
+            </View>
+
+
         </View>
     )
 }
@@ -59,7 +69,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffffff',
     },
     signupTextCont: {
-        marginBottom:30,
+        marginBottom: 30,
         flexGrow: 1,
         justifyContent: 'center', alignItems: 'flex-end', paddingVertical: 15, flexDirection: 'row',
     },
@@ -70,11 +80,43 @@ const styles = StyleSheet.create({
         color: '#700d49', fontSize: 15,
         fontWeight: '500',
     },
-    forgotButton:{
-        position : 'absolute',
+    forgotButton: {
+        position: 'absolute',
         justifyContent: 'center', alignItems: 'center',
         color: '#700d49', fontSize: 15,
         fontWeight: '500',
-    }
+    },
+    wrap: {
+        alignSelf:'center',
+        borderWidth: 1,
+        borderColor: "rgba(0, 0, 0, 0.5)",
+        position: "absolute",
+
+        flexDirection: "row",
+      },
+      display: {
+        borderRightWidth: 3,
+        borderRightColor: "rgba(0, 0, 0, 0.5)",
+        width: 56,
+        height: 58,
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "visible",
+      },
+      text: {
+        fontSize: 32,
+      },
+      noBorder: {
+        borderRightWidth: 0,
+      },
+      input: {
+        position: "absolute",
+        fontSize: 32,
+        textAlign: "center",
+        backgroundColor: "transparent",
+        width: 32,
+        top: 0,
+        bottom: 0,
+      }
 });
-export default SignIn;
+export default VerifyCode;
