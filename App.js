@@ -7,7 +7,6 @@ import { Ionicons } from "@expo/vector-icons";
 import { Colors, Styles } from "./src/constants";
 
 import Explore from "./src/screens/Explore";
-import AllMessages from "./src/screens/AllMessages";
 import Profile from "./src/screens/Profile";
 import Splash from "./src/screens/Splash";
 import HomeCarousel from "./src/screens/Introduction";
@@ -25,6 +24,12 @@ import MainHome from "./src/screens/Home/Main";
 import Request from "./src/screens/Home/Request";
 import MakeOffer from "./src/screens/MakeOffer";
 import SearchResults from "./src/screens/SearchResult";
+import Services from "./src/screens/Services";
+import OfferDetails from "./src/screens/OfferDetails";
+import Notification from "./src/screens/Notifications";
+import Messages from "./src/screens/Messages";
+import ChatField from "./src/screens/ChatField";
+import User from "./src/screens/User";
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -54,24 +59,28 @@ function HomeTabScreen() {
         ),
       })}
     >
-
-      <Tab.Screen name="SearchResults" component={SearchResults} options={{}}/>
-      <Tab.Screen name="MakeOffer" component={MakeOffer} options={{}}/>
-      <Tab.Screen name="Request" component={Request} options={{}}/>
-      <Tab.Screen name="MainHome" component={MainHome} options={{}}/>
-      <Tab.Screen name="Broadcast" component={Broadcast} options={{}}/>
-      <Tab.Screen name="SendingPhoto" component={SendingPhoto} options={{}}/>
-      <Tab.Screen name="AddBestPhoto" component={AddBestPhoto}  />
-      <Tab.Screen name="EnterPhone" component={EnterPhone}  />
-      <Tab.Screen name="CreatePassword" component={CreatePassword}  />
-      <Tab.Screen name="SignUp" component={SignUp}  />
+      <Tab.Screen name="ChatField" component={ChatField} options={{}} />
+      {/* <Tab.Screen name="User" component={User} options={{}} /> */}
+      <Tab.Screen name="Messages" component={Messages} options={{}} />
+      <Tab.Screen name="Notification" component={Notification} options={{}} />
+      <Tab.Screen name="OfferDetails" component={OfferDetails} options={{}} />
+      <Tab.Screen name="Services" component={Services} options={{}} />
+      <Tab.Screen name="SearchResults" component={SearchResults} options={{}} />
+      <Tab.Screen name="MakeOffer" component={MakeOffer} options={{}} />
+      <Tab.Screen name="Request" component={Request} options={{}} />
+      <Tab.Screen name="MainHome" component={MainHome} options={{}} />
+      <Tab.Screen name="Broadcast" component={Broadcast} options={{}} />
+      <Tab.Screen name="SendingPhoto" component={SendingPhoto} options={{}} />
+      <Tab.Screen name="AddBestPhoto" component={AddBestPhoto} />
+      <Tab.Screen name="EnterPhone" component={EnterPhone} />
+      <Tab.Screen name="CreatePassword" component={CreatePassword} />
+      <Tab.Screen name="SignUp" component={SignUp} />
 
       <Tab.Screen name="VerifyCode" component={VerifyCode} />
-      <Tab.Screen name="SignIn" component={SignIn}  />
+      <Tab.Screen name="SignIn" component={SignIn} />
       <Tab.Screen name="Introduction" component={HomeCarousel} />
       <Tab.Screen name="Splash" component={Splash} />
-      <Tab.Screen name="Explore" component={Explore}  />
-      <Tab.Screen name="Messages" component={AllMessages} />
+      <Tab.Screen name="Explore" component={Explore} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

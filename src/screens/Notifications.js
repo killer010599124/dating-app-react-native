@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Services = () => {
+const Notification = () => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,14 +55,13 @@ const Services = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03,paddingLeft : dimension.width * 0.1 ,  flexDirection: 'row' }}>
-            <Image source={require('../../Image/services.png')} style={{ width: dimension.width * 0.2, height: dimension.width * 0.2 }} />
-            <Text style={{position : 'absolute', marginTop : dimension.width * 0.1,marginLeft : dimension.width * 0.115, color: '#E53A96', fontSize: 14, fontWeight: 'bold', textAlign : 'center' }}>50%{'\n'}Cash Back</Text>
-            <View style={{ paddingLeft: dimension.width * 0.1, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+        <View style={{ paddingTop: dimension.height * 0.02,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
+            <Image source={require('../../Image/avatar1.jpg')} style={{borderRadius : dimension.width * 0.075, width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
+            <View style={{ paddingLeft: 10, textAlignVertical: 'center',paddingVertical: 5, flexDirection: 'column', justifyContent: 'space-between' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Bookmyshow</Text>
-                <Text style={{ color: '#E53A96', fontSize: 12, fontWeight: 'bold' }}>Movie tickets</Text>
-                <Text style={{ color: '#6E7077' }}>For couple enter only</Text>
+                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Your new connection is waiting
+                </Text>
+                <Text style={{ color: '#6E7077' }}>28 min ago</Text>
             </View>
             
         </View>
@@ -79,7 +78,7 @@ const Services = () => {
         }}>
 
             
-            <SafeAreaView style={{ paddingTop: 50, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
+            <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}
@@ -127,4 +126,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Services;
+export default Notification;

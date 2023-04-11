@@ -55,7 +55,7 @@ const SearchResults = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03, flexDirection: 'row' }}>
+        <View style={{ paddingTop: dimension.height * 0.03,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
             <Image source={require('../../Image/Card.png')} style={{ width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
             <View style={{ paddingLeft: 10, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
 

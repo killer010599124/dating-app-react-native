@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Services = () => {
+const User = () => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,16 +55,14 @@ const Services = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03,paddingLeft : dimension.width * 0.1 ,  flexDirection: 'row' }}>
-            <Image source={require('../../Image/services.png')} style={{ width: dimension.width * 0.2, height: dimension.width * 0.2 }} />
-            <Text style={{position : 'absolute', marginTop : dimension.width * 0.1,marginLeft : dimension.width * 0.115, color: '#E53A96', fontSize: 14, fontWeight: 'bold', textAlign : 'center' }}>50%{'\n'}Cash Back</Text>
-            <View style={{ paddingLeft: dimension.width * 0.1, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+        <View style={{ paddingTop: dimension.height * 0.03,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
+            <Image source={require('../../Image/Card.png')} style={{ width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
+            <View style={{ paddingLeft: 10, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Bookmyshow</Text>
-                <Text style={{ color: '#E53A96', fontSize: 12, fontWeight: 'bold' }}>Movie tickets</Text>
-                <Text style={{ color: '#6E7077' }}>For couple enter only</Text>
+                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Fashion</Text>
+                <Text style={{ color: '#6E7077' }}>3330 offers</Text>
             </View>
-            
+            <Image source={require('../../Image/Icon.png')} style={{ marginVertical: dimension.width * 0.05, marginHorizontal: dimension.width * 0.45, width: dimension.width * 0.03, height: dimension.width * 0.05 }} />
         </View>
     );
     const renderItem = ({ item }) => (
@@ -78,8 +76,28 @@ const Services = () => {
             height: '100%'
         }}>
 
-            
-            <SafeAreaView style={{ paddingTop: 50, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
+            <Image
+                style={{ borderTopLeftRadius: dimension.width * 0.1, borderTopRightRadius: dimension.width * 0.1, width: dimension.width * 0.9, height: dimension.height * 0.2, alignSelf: 'center', marginTop: 20 }}
+                resizeMode={'stretch'} source={require('../../Image/search.png')} />
+            <Text
+                style={{ paddingBottom: 10, borderBottomWidth: 0.5, textAlignVertical: 'top', width: dimension.width * 0.9, borderColor: '#6E7077', fontWeight: 'bold', marginLeft: dimension?.width * 0.05, marginTop: dimension?.height * 0.03, color: '#15224F', fontSize: 20, textAlign: 'left' }}>
+                Search Results
+            </Text>
+            <View style={{ width: dimension.width * 0.9, alignSelf: 'center', flexDirection: 'row', marginTop: dimension.height * 0.02 }}>
+                <Text style={{ color: 'black', fontSize: 16, textAlignVertical: 'center' }}>
+                    Search By
+                </Text>
+                <Text style={{ backgroundColor: '#FFDAEE', fontSize: 12, textAlign: 'center', textAlignVertical: 'center', borderRadius: 20, width: dimension.width * 0.2, marginLeft: dimension.width * 0.02 }}>
+                    Town Name
+                </Text>
+                <TouchableOpacity>
+                    <Text style={{ color: '#E53A96', fontSize: 20, right: 0, marginLeft: dimension.width * 0.3 }}>
+                        Change
+                    </Text>
+                </TouchableOpacity>
+
+            </View>
+            <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.45, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}
@@ -127,4 +145,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Services;
+export default User;

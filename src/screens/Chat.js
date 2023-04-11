@@ -58,13 +58,13 @@ class Chat extends Component {
     const { messages } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: "#F8F8F9" }}>
-        {/* <GiftedChat
+        <GiftedChat
           messages={messages}
           onSend={this._sendMessage}
           user={{
             _id: 1337,
           }}
-        /> */}
+        />
       </View>
     );
   }
