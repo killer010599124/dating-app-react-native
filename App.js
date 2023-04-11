@@ -21,6 +21,10 @@ import EnterPhone from "./src/screens/EnterPhone";
 import AddBestPhoto from "./src/screens/AddBestPhoto";
 import SendingPhoto from "./src/screens/SendingPhoto";
 import Broadcast from "./src/screens/Boradcast";
+import MainHome from "./src/screens/Home/Main";
+import Request from "./src/screens/Home/Request";
+import MakeOffer from "./src/screens/MakeOffer";
+import SearchResults from "./src/screens/SearchResult";
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -50,8 +54,12 @@ function HomeTabScreen() {
         ),
       })}
     >
-      <Tab.Screen name="Broadcast" component={Broadcast} options={{}} />
 
+      <Tab.Screen name="SearchResults" component={SearchResults} options={{}}/>
+      <Tab.Screen name="MakeOffer" component={MakeOffer} options={{}}/>
+      <Tab.Screen name="Request" component={Request} options={{}}/>
+      <Tab.Screen name="MainHome" component={MainHome} options={{}}/>
+      <Tab.Screen name="Broadcast" component={Broadcast} options={{}}/>
       <Tab.Screen name="SendingPhoto" component={SendingPhoto} options={{}}/>
       <Tab.Screen name="AddBestPhoto" component={AddBestPhoto}  />
       <Tab.Screen name="EnterPhone" component={EnterPhone}  />
