@@ -33,6 +33,11 @@ import User from "./src/screens/User";
 import RoyalGold from "./src/screens/RoyalGold";
 import Settings from "./src/screens/Settings";
 import EditIntro from "./src/screens/EditIntro";
+import Preferences from "./src/screens/Preferences";
+import Queen from "./src/screens/Queen";
+import Offer from "./src/screens/Offer";
+import Membership from "./src/screens/Membership";
+
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -63,7 +68,10 @@ function HomeTabScreen() {
       })}
     >
 
-
+      <Tab.Screen name="Membership" component={Membership} options={{}} />
+      <Tab.Screen name="Offer" component={Offer} options={{}} />
+      <Tab.Screen name="Queen" component={Queen} options={{}} />
+      <Tab.Screen name="Preferences" component={Preferences} options={{}} />
       <Tab.Screen name="EditIntro" component={EditIntro} options={{}} />
       <Tab.Screen name="Settings" component={Settings} options={{}} />
       <Tab.Screen name="RoyalGold" component={RoyalGold} options={{}} />
