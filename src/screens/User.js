@@ -21,52 +21,49 @@ const User = () => {
     const DATA = [
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            title: 'First Item',
-
-        },
-        {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            title: 'Second Item',
-        },
-        {
-            id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            title: 'Third Item',
+            title: 'Settings',
+            uri : require('../../Image/setting.png')
         },
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            title: 'First Item',
+            title: 'Edit Info',
+            uri : require('../../Image/edit.png')
         },
         {
             id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            title: 'Second Item',
+            title: 'My Preferences',
+            uri : require('../../Image/intro.png')
         },
         {
             id: '58694a0f-3da1-471f-bd96-145571e29d72',
-            title: 'Third Item',
+            title: 'My Queen',
+            uri : require('../../Image/goldmark.png')
         },
         {
             id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-            title: 'First Item',
+            title: 'My Offers',
+            uri : require('../../Image/heart.png')
         },
         {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-            title: 'Second Item',
+            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+            title: 'Invite Friends',
+            uri : require('../../Image/invite.png')
         },
-
+        
     ];
-    const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
-            <Image source={require('../../Image/Card.png')} style={{ width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
-            <View style={{ paddingLeft: 10, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+    const Item = ({ title , uri }) => (
+        <View style={{ paddingTop: dimension.height * 0.01, paddingBottom: 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077'  }}>
+            <Image source={uri} style={{marginTop : dimension.height * 0.01, width: dimension.width * 0.1, height: dimension.width * 0.1 }} />
+            <View style={{width : dimension.width * 0.6 , paddingLeft: dimension.width * 0.1, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Fashion</Text>
-                <Text style={{ color: '#6E7077' }}>3330 offers</Text>
+                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>{title}</Text>
+                
             </View>
-            <Image source={require('../../Image/Icon.png')} style={{ marginVertical: dimension.width * 0.05, marginHorizontal: dimension.width * 0.45, width: dimension.width * 0.03, height: dimension.width * 0.05 }} />
+            <Image source={require('../../Image/Icon.png')} style={{ marginVertical: dimension.width * 0.05, marginHorizontal: dimension.width * 0.1, width: dimension.width * 0.03, height: dimension.width * 0.05 }} />
         </View>
     );
     const renderItem = ({ item }) => (
-        <Item title={item.title} />
+        <Item title={item.title} uri = {item.uri} />
     );
 
     return (
@@ -75,29 +72,25 @@ const User = () => {
             width: '100%',
             height: '100%'
         }}>
-
-            <Image
-                style={{ borderTopLeftRadius: dimension.width * 0.1, borderTopRightRadius: dimension.width * 0.1, width: dimension.width * 0.9, height: dimension.height * 0.2, alignSelf: 'center', marginTop: 20 }}
-                resizeMode={'stretch'} source={require('../../Image/search.png')} />
-            <Text
-                style={{ paddingBottom: 10, borderBottomWidth: 0.5, textAlignVertical: 'top', width: dimension.width * 0.9, borderColor: '#6E7077', fontWeight: 'bold', marginLeft: dimension?.width * 0.05, marginTop: dimension?.height * 0.03, color: '#15224F', fontSize: 20, textAlign: 'left' }}>
-                Search Results
-            </Text>
-            <View style={{ width: dimension.width * 0.9, alignSelf: 'center', flexDirection: 'row', marginTop: dimension.height * 0.02 }}>
-                <Text style={{ color: 'black', fontSize: 16, textAlignVertical: 'center' }}>
-                    Search By
+            <View style = {{backgroundColor : '#F7FBFE', width : '100%', height : dimension.height * 0.35}}>
+                <Image
+                    style={{ borderRadius: dimension.width * 0.1,  width: dimension.width * 0.2, height: dimension.width * 0.2, alignSelf: 'center', marginTop: 20 }}
+                    resizeMode={'stretch'} source={require('../../Image/avatar1.jpg')} />
+                <Text
+                    style={{ textAlignVertical: 'top', width: dimension.width * 0.9, borderColor: '#6E7077', fontWeight: 'bold', marginLeft: dimension?.width * 0.05, marginTop: dimension?.height * 0.02, color: '#15224F', fontSize: 24, textAlign: 'center' }}>
+                    Azzahri, 25
                 </Text>
-                <Text style={{ backgroundColor: '#FFDAEE', fontSize: 12, textAlign: 'center', textAlignVertical: 'center', borderRadius: 20, width: dimension.width * 0.2, marginLeft: dimension.width * 0.02 }}>
-                    Town Name
+                <Text
+                    style={{ textAlignVertical: 'top', width: dimension.width * 0.9, borderColor: '#6E7077', fontWeight: 'bold', marginLeft: dimension?.width * 0.05,  color: '#6E7077', fontSize: 14, textAlign: 'center' }}>
+                    Sukabumi, Indonesia
                 </Text>
                 <TouchableOpacity>
-                    <Text style={{ color: '#E53A96', fontSize: 20, right: 0, marginLeft: dimension.width * 0.3 }}>
-                        Change
-                    </Text>
+                <Image
+                    style={{  alignSelf: 'center', marginTop: 20, width : dimension.width * 0.5, height : dimension.height * 0.07 }}
+                    resizeMode={'stretch'} source={require('../../Image/level.png')} />
                 </TouchableOpacity>
-
             </View>
-            <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.45, alignSelf: 'center' }}>
+            <SafeAreaView style={{  width: dimension.width * 0.9, height: dimension.height * 0.45, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}

@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { View, Image, Text, StyleSheet, Dimensions, ImageBackground } from "react-native";
+import { View, Image,TextInput, Text, StyleSheet, Dimensions, ImageBackground } from "react-native";
 
 
 import Users from "../../fakedata/users.json";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';
-import { TextInput } from 'react-native-gesture-handler';
+// import { TextInput } from 'react-native-gesture-handler';
 const ChatField = () => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
@@ -37,8 +37,6 @@ const ChatField = () => {
                     {content}
                 </Text>
             </View>
-
-
         )
     }
 
@@ -79,9 +77,10 @@ const ChatField = () => {
 
                 <Image source={require('../../Image/Camera.png')} style={{ width: 30, height: 30 }} />
                 <Image source={require('../../Image/Size.png')} style={{ width: 30, height: 30 }} />
-                <TextInput style={{...styles.inputBox, width: dimension.width * 0.62,color : 'black' }} selectionColor="#000"  underlineColorAndroid='rgba(0,0,0,0)' uplaceholder="Enter Password"
+                <TextInput style={{ width: dimension.width * 0.62,color : 'black' }} selectionColor="#000" uplaceholder="Type a message"
                     secureTextEntry={true}
-                    placeholderTextColor="black"
+                    keyboardType="email-address"
+                    placeholderTextColor="#000"
                 />
                 <Image source={require('../../Image/Message.png')} style={{ width: 30, height: 30 }} />
             </View>

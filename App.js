@@ -30,6 +30,9 @@ import Notification from "./src/screens/Notifications";
 import Messages from "./src/screens/Messages";
 import ChatField from "./src/screens/ChatField";
 import User from "./src/screens/User";
+import RoyalGold from "./src/screens/RoyalGold";
+import Settings from "./src/screens/Settings";
+import EditIntro from "./src/screens/EditIntro";
 
 function getTabIcon(routeName) {
   switch (routeName) {
@@ -59,8 +62,13 @@ function HomeTabScreen() {
         ),
       })}
     >
+
+
+      <Tab.Screen name="EditIntro" component={EditIntro} options={{}} />
+      <Tab.Screen name="Settings" component={Settings} options={{}} />
+      <Tab.Screen name="RoyalGold" component={RoyalGold} options={{}} />
+      <Tab.Screen name="User" component={User} options={{}} />
       <Tab.Screen name="ChatField" component={ChatField} options={{}} />
-      {/* <Tab.Screen name="User" component={User} options={{}} /> */}
       <Tab.Screen name="Messages" component={Messages} options={{}} />
       <Tab.Screen name="Notification" component={Notification} options={{}} />
       <Tab.Screen name="OfferDetails" component={OfferDetails} options={{}} />
