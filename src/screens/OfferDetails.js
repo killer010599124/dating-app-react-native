@@ -48,9 +48,8 @@ const OfferDetails = () => {
                 </View>
             </View>
             <Text style={{ color: '#6E7077', width: dimension.width * 0.8, alignSelf: 'center', marginTop: dimension.height * 0.05 }}>
-                With our new exciting features With our new exciting features.
+                With our new exciting features 
                 {'\n'}
-                With our new exciting features With our new exciting features
             </Text>
             <View style={{marginTop : dimension.height * 0.07}}>
                 <Text style={{ color: 'black', fontSize: 24, fontWeight: 'bold', textAlign : 'center' }}>Coupon Code</Text>

@@ -67,19 +67,23 @@ function HomeTabScreen() {
         ),
       })}
     >
+     
 
-      <Tab.Screen name="Membership" component={Membership} options={{}} />
-      <Tab.Screen name="Offer" component={Offer} options={{}} />
+    <Tab.Screen name="Splash" component={Splash} />
+    
+    <Tab.Screen name="Membership" component={Membership} options={{}} />
+    <Tab.Screen name="OfferDetails" component={OfferDetails} options={{}} />
+    <Tab.Screen name="RoyalGold" component={RoyalGold} options={{}} />
+    <Tab.Screen name="Offer" component={Offer} options={{}} />
+    <Tab.Screen name="Settings" component={Settings} options={{}} />
+    <Tab.Screen name="EditIntro" component={EditIntro} options={{}} />
+    <Tab.Screen name="Preferences" component={Preferences} options={{}} />
       <Tab.Screen name="Queen" component={Queen} options={{}} />
-      <Tab.Screen name="Preferences" component={Preferences} options={{}} />
-      <Tab.Screen name="EditIntro" component={EditIntro} options={{}} />
-      <Tab.Screen name="Settings" component={Settings} options={{}} />
-      <Tab.Screen name="RoyalGold" component={RoyalGold} options={{}} />
+     
       <Tab.Screen name="User" component={User} options={{}} />
       <Tab.Screen name="ChatField" component={ChatField} options={{}} />
       <Tab.Screen name="Messages" component={Messages} options={{}} />
       <Tab.Screen name="Notification" component={Notification} options={{}} />
-      <Tab.Screen name="OfferDetails" component={OfferDetails} options={{}} />
       <Tab.Screen name="Services" component={Services} options={{}} />
       <Tab.Screen name="SearchResults" component={SearchResults} options={{}} />
       <Tab.Screen name="MakeOffer" component={MakeOffer} options={{}} />
@@ -95,7 +99,6 @@ function HomeTabScreen() {
       <Tab.Screen name="VerifyCode" component={VerifyCode} />
       <Tab.Screen name="SignIn" component={SignIn} />
       <Tab.Screen name="Introduction" component={HomeCarousel} />
-      <Tab.Screen name="Splash" component={Splash} />
       <Tab.Screen name="Explore" component={Explore} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>

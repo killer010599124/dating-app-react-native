@@ -44,7 +44,7 @@ const RoyalGold = () => {
             </Text>
             <Text
                 style={{ textAlignVertical: 'top', width: dimension.width * 0.7, alignSelf: 'center', borderColor: '#6E7077', marginLeft: dimension?.width * 0.05, marginTop: dimension?.height * 0.01, color: '#6E7077', fontSize: 18, textAlign: 'center' }}>
-                With our new exciting features With our new exciting features.
+                With our new exciting features
             </Text>
             <View style={{marginTop : 20, flexDirection: 'row', justifyContent: 'center', alignSelf : 'center', width : dimension.width * 0.9 }}>
                 <View style={{ width: dimension.width * 0.4, height: dimension.height * 0.4,  }}>

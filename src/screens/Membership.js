@@ -46,7 +46,7 @@ const Membership = () => {
                 width:dimension.width*0.8,
                 marginTop : dimension.height*0.4,
             }}>
-                You can join you friends and get 25% discount off membership
+                You can join your friends and get 25% discount off membership
             </Text>
             <Text style = {{
                 position : 'absolute',
@@ -57,7 +57,7 @@ const Membership = () => {
                 width:dimension.width*0.8,
                 marginTop : dimension.height*0.55,
             }}>
-               "You've got an amazing story now you are in Royaltydating soo tell us what you're looking for in your future partner.
+               You've got an amazing story now you are in Royaltydating soon tell us what you're looking for in your future partner.
             </Text>
             <View style = {{alignSelf : 'center',position : 'absolute',marginTop:dimension.height*0.8}}>
                 <Button1 title={"REFER PEOPLE!"}/>
