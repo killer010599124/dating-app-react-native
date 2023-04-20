@@ -13,12 +13,18 @@ const Header = {
 };
 
 const Tabs = {
-  tabBarActiveTintColor: "#F87961",
+  tabBarActiveTintColor: "#F35BAC",
   tabBarStyle: {
     backgroundColor: "white",
+    // borderRadius : 40,
+    width:'100%',
+    height : '6%',
+    alignSelf : 'center',
+    paddingHorizental : 20,
     borderTopWidth: 0,
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
+    shadowOpacity: 1,
+    shadowRadius: 10,
+    
   },
 };
 

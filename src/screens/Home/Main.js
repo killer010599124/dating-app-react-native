@@ -77,17 +77,17 @@ const MainHome = ({navigation}) => {
         }}>
 
             <Image
-                style={{ borderTopLeftRadius: dimension.width * 0.1, borderTopRightRadius: dimension.width * 0.1, width: dimension.width * 0.8, height: dimension.height * 0.75, alignSelf: 'center', marginTop: 20 }}
+                style={{ borderTopLeftRadius: dimension.width * 0.05, borderTopRightRadius: dimension.width * 0.05, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center', marginTop: 20 }}
                 resizeMode={'stretch'} source={require('../../../Image/start.png')} />
             <View style={{
                 position: 'absolute',
                 flexDirection: 'row',
                 justifyContent: 'center',
                 height: dimension.height * 0.1,
-                width: dimension.width * 0.8,
+                width: dimension.width * 0.9,
                 alignSelf: 'center',
                 alignItems: 'center',
-                marginTop: dimension.height * 0.55,
+                marginTop: dimension.height * 0.6,
                 textAlign: 'center'
             }}>
                 <TouchableOpacity style={{ padding: 20 }}>
@@ -102,16 +102,11 @@ const MainHome = ({navigation}) => {
                 </TouchableOpacity>
 
             </View>
-            <View style={{ flexDirection: 'row', paddingHorizontal: 10, justifyContent: 'space-between', backgroundColor: ' rgba(0, 0, 0, 0.7)', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.675, borderWidth: 1, borderColor: '#E63A96' }}>
+            <View style={{ flexDirection: 'row', paddingHorizontal: 10, justifyContent: 'space-between', backgroundColor: ' rgba(0, 0, 0, 0.7)', height: dimension.height * 0.1, width: dimension.width * 0.9, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.725, borderWidth: 1, borderColor: '#E63A96' }}>
                 <Text style={{ color: 'white', textAlignVertical: 'center', fontSize: 20 }}>Pooja, 26</Text>
                 <Text style={{ color: 'white', textAlignVertical: 'center', fontSize: 14 }}>just close to you</Text>
             </View>
-            <View style={{ backgroundColor: 'white', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.8, borderRadius: dimension.width * 0.2, borderWidth: 0, borderColor: '#E63A96' }}>
-                {/* <Button1 title={"LET'S GO"}/> */}
-                <Image style={{ position: 'absolute', marginTop: -dimension.height * 0.04 }} source={require('../../../Image/footer.png')}>
-
-                </Image>
-            </View>
+           
             <Modal
                 isVisible={visibleModel === 1}
                 style={styles.bottomModal}

@@ -1,9 +1,8 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
-
 import { Colors, Styles } from "./src/constants";
 
 import Explore from "./src/screens/Explore";
@@ -41,16 +40,16 @@ import Membership from "./src/screens/Membership";
 
 function getTabIcon(routeName) {
   switch (routeName) {
-    case "MainHomeStack":
-      return "ios-home";
-    case "SearchStack":
-      return "ios-bookmarks";
-    case "MessageStack":
-      return "ios-chatbubbles";
-    case "ProfileStack":
-      return "ios-person";
-    case "NotificationStack":
-      return "ios-notifications";
+    case "Home":
+      return "ios-home-outline";
+    case "Search":
+      return "ios-bookmarks-outline";
+    case "Message":
+      return "ios-chatbubbles-outline";
+    case "Profile":
+      return "ios-person-outline";
+    case "Notification":
+      return "ios-notifications-outline";
   }
 }
 const Tab = createBottomTabNavigator();
@@ -64,9 +63,9 @@ const ProfileStack = createNativeStackNavigator();
 function StartStackScreen() {
   return (
     <StartStack.Navigator
-     
+
     >
-      
+
       <MainStack.Screen name="Splash" component={Splash} />
 
       <MainStack.Screen name="Request" component={Request} options={{}} />
@@ -86,13 +85,13 @@ function StartStackScreen() {
 function SearchStackScreen() {
   return (
     <SearchStack.Navigator
-     
+
     >
-      
+
       <SearchStack.Screen name="MakeOffer" component={MakeOffer} options={{}} />
       <SearchStack.Screen name="Services" component={Services} options={{}} />
       <SearchStack.Screen name="SearchResults" component={SearchResults} options={{}} />
-      
+
       <MainStack.Screen name="OfferDetails" component={OfferDetails} options={{}} />
     </SearchStack.Navigator>
   );
@@ -100,7 +99,7 @@ function SearchStackScreen() {
 function NotificationStackScreen() {
   return (
     <NotificationStack.Navigator
-     
+
     >
 
       <NotificationStack.Screen name="Notification" component={Notification} options={{}} />
@@ -111,7 +110,7 @@ function NotificationStackScreen() {
 function MessageStackScreen() {
   return (
     <MessageStack.Navigator
-     
+
     >
       <MessageStack.Screen name="Messages" component={Messages} options={{}} />
       <MessageStack.Screen name="ChatField" component={ChatField} options={{}} />
@@ -121,7 +120,7 @@ function MessageStackScreen() {
 function ProfileStackScreen() {
   return (
     <ProfileStack.Navigator
-     
+
     >
       <ProfileStack.Screen name="User" component={User} options={{}} />
       <ProfileStack.Screen name="Membership" component={Membership} options={{}} />
@@ -131,13 +130,15 @@ function ProfileStackScreen() {
       <ProfileStack.Screen name="EditIntro" component={EditIntro} options={{}} />
       <ProfileStack.Screen name="Preferences" component={Preferences} options={{}} />
       <ProfileStack.Screen name="Queen" component={Queen} options={{}} />
+      <ProfileStack.Screen name="QueenChat" component={ChatField} options={{}} />
+      <ProfileStack.Screen name="MyOffer" component={OfferDetails} options={{}} />
     </ProfileStack.Navigator>
   );
 }
 function MainHomeStackScreen() {
   return (
     <MainHomeStack.Navigator
-     
+
     >
       <MainHomeStack.Screen name="MainHome" component={MainHome} options={{}} />
       <MainHomeStack.Screen name="Request" component={Request} options={{}} />
@@ -154,13 +155,15 @@ function HomeTabScreen() {
         tabBarIcon: ({ color }) => (
           <Ionicons
             name={getTabIcon(options.route.name)}
-            size={32}
+            size={26}
             color={color}
             style={{ marginTop: 2 }}
           />
         ),
+        tabBarShowLabel: false,
+
         headerShown: false
-        
+
       })}
     >
 
@@ -168,11 +171,44 @@ function HomeTabScreen() {
       {/**/}
 
 
-      <Tab.Screen name="MainHomeStack" component={MainHomeStackScreen} options={{}} />
-      <Tab.Screen name="SearchStack" component={SearchStackScreen} options={{}} />
-      <Tab.Screen name="NotificationStack" component={NotificationStackScreen} options={{}} />
-      <Tab.Screen name="MessageStack" component={MessageStackScreen} options={{}} />
-      <Tab.Screen name="ProfileStack" component={ProfileStackScreen} options={{}} />
+      <Tab.Screen name="Home" component={MainHomeStackScreen}
+        options={({ route }) => ({
+          tabBarStyle: ((route) => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? ""
+            console.log(routeName)
+            if (routeName === 'Request') {
+              return { display: "none" }
+            }
+            return
+          })(route),
+        })} />
+      <Tab.Screen name="Search" component={SearchStackScreen} />
+      <Tab.Screen name="Notification" component={NotificationStackScreen} options={{}} />
+      <Tab.Screen name="Message" component={MessageStackScreen}
+        options={({ route }) => ({
+          tabBarStyle: ((route) => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? ""
+            console.log(routeName)
+            if (routeName === 'ChatField') {
+              return { display: "none" }
+            }
+            return
+          })(route),
+        })} />
+      <Tab.Screen name="Profile" component={ProfileStackScreen}
+        options={({ route }) => ({
+          tabBarStyle: ((route) => {
+            const routeName = getFocusedRouteNameFromRoute(route) ?? ""
+            console.log(routeName)
+            if (routeName === 'QueenChat') {
+              return { display: "none" }
+            }
+            else if (routeName === 'Membership') {
+              return { display: "none" }
+            }
+            return
+          })(route),
+        })} />
 
       {/*  */}
       {/* <Tab.Screen name="Explore" component={Explore} />
@@ -192,7 +228,7 @@ function MainStackScreen() {
       }}
     >
       <MainStack.Screen name="Home" component={HomeTabScreen} />
-    
+
     </MainStack.Navigator>
   );
 }

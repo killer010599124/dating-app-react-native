@@ -28,7 +28,7 @@ const Membership = () => {
             </LinearGradient>
             <Image
                 resizeMode={'stretch'}
-                source={require('../../Image/logo.png')}
+                source={require('../../Image/goldmark.png')}
                 style={{
                     position : 'absolute',
                     alignSelf : 'center',
@@ -59,7 +59,7 @@ const Membership = () => {
             }}>
                You've got an amazing story now you are in Royaltydating soon tell us what you're looking for in your future partner.
             </Text>
-            <View style = {{alignSelf : 'center',position : 'absolute',marginTop:dimension.height*0.8}}>
+            <View style = {{alignSelf : 'center',position : 'absolute',marginTop:dimension.height*0.75}}>
                 <Button1 title={"REFER PEOPLE!"}/>
             </View>
             

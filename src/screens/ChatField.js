@@ -5,7 +5,6 @@ import { View, Image,TextInput, Text, StyleSheet, Dimensions, ImageBackground } 
 import Users from "../../fakedata/users.json";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';
-// import { TextInput } from 'react-native-gesture-handler';
 const ChatField = () => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
@@ -22,7 +21,7 @@ const ChatField = () => {
     const Chatitem1 = ({ content, }) => {
         return (
             <View style = {{marginTop : dimension.height * 0.02,flexDirection : 'row' , justifyContent :'flex-start' }}>
-                <Text style={{ maxWidth: dimension.width * 0.6, paddingHorizontal: 5, paddingVertical: dimension.height * 0.03, fontSize: 16, backgroundColor: '#FD92C6', color: 'white', borderRadius: 20, borderBottomLeftRadius: 0, textAlign: 'left' }}>
+                <Text style={{ maxWidth: dimension.width * 0.6, paddingHorizontal: 5, paddingVertical: dimension.height * 0.02, fontSize: 16, backgroundColor: '#FD92C6', color: 'white', borderRadius: 20, borderBottomLeftRadius: 0, textAlign: 'left' }}>
                     {content}
                 </Text>
             </View>
@@ -33,7 +32,7 @@ const ChatField = () => {
     const Chatitem2 = ({ content, }) => {
         return (
             <View style = {{ marginTop : dimension.height * 0.02, flexDirection : 'row' , justifyContent :'flex-end' }}>
-                <Text style={{ maxWidth: dimension.width * 0.6, paddingVertical: dimension.height * 0.03, paddingHorizontal: 5, fontSize: 16, backgroundColor: '#F7FBFE', color: '#022150', borderRadius: 20, borderBottomRightRadius: 0, textAlign: 'right' }}>
+                <Text style={{ maxWidth: dimension.width * 0.6, paddingVertical: dimension.height * 0.02, paddingHorizontal: 5, fontSize: 16, backgroundColor: '#F7FBFE', color: '#022150', borderRadius: 20, borderBottomRightRadius: 0, textAlign: 'right' }}>
                     {content}
                 </Text>
             </View>
@@ -62,7 +61,7 @@ const ChatField = () => {
             <View
                 style={{
                     position: 'absolute',
-                    backgroundColor: '#F7FBFE',
+                    backgroundColor: 'white',
                     borderColor: '#E53A96',
                     borderWidth: 0.5,
                     borderRadius: dimension.height * 0.04,

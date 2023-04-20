@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {Alert, View, Image, Text, StyleSheet, Dimensions, ImageBackground } from "react-native";
-
+import { LogBox } from 'react-native';
+LogBox.ignoreLogs(['Warning: ...']); // Ignore log notification by message
+LogBox.ignoreAllLogs();//Ignore all log notifications
 
 import Users from "../../fakedata/users.json";
 import { LinearGradient } from 'expo-linear-gradient';

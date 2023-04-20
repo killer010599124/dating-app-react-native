@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Offer = () => {
+const Offer = ({ navigation }) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,14 +55,20 @@ const Offer = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
-            <Image source={require('../../Image/Card.png')} style={{ width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
-            <View style={{ paddingLeft: 10, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+        <View >
+            <TouchableOpacity
+                style={{ paddingTop: dimension.height * 0.03, paddingBottom: 6, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: '#6E7077' }}
+                onPress={() => { navigation.navigate('MyOffer') }}
+            >
+                <Image source={require('../../Image/Card.png')} style={{ width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
+                <View style={{ paddingLeft: 10, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Fashion</Text>
-                <Text style={{ color: '#6E7077' }}>3330 offers</Text>
-            </View>
-            <Image source={require('../../Image/Icon.png')} style={{ marginVertical: dimension.width * 0.05, marginHorizontal: dimension.width * 0.45, width: dimension.width * 0.03, height: dimension.width * 0.05 }} />
+                    <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Fashion</Text>
+                    <Text style={{ color: '#6E7077' }}>3330 offers</Text>
+                </View>
+                <Image source={require('../../Image/Icon.png')} style={{ marginVertical: dimension.width * 0.05, marginHorizontal: dimension.width * 0.45, width: dimension.width * 0.03, height: dimension.width * 0.05 }} />
+            </TouchableOpacity>
+
         </View>
     );
     const renderItem = ({ item }) => (
@@ -76,21 +82,15 @@ const Offer = () => {
             height: '100%'
         }}>
 
-            
-            <SafeAreaView style={{ marginTop : dimension.height * 0.1, width: dimension.width * 0.9, height: dimension.height * 0.7, alignSelf: 'center' }}>
+
+            <SafeAreaView style={{ marginTop: dimension.height * 0.05, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                 />
             </SafeAreaView>
-            <View style={{ backgroundColor: 'white', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.8, borderRadius: dimension.width * 0.2, borderWidth: 0, borderColor: '#E63A96' }}>
-                {/* <Button1 title={"LET'S GO"}/> */}
-                <Image style={{ position: 'absolute', marginTop: -dimension.height * 0.04 }} source={require('../../Image/footer.png')}>
-
-                </Image>
-            </View>
-
+            
 
         </View>
     );

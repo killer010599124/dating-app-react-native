@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Queen = () => {
+const Queen = ({ navigation }) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,20 +55,26 @@ const Queen = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.02, paddingBottom: 6, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: '#6E7077' }}>
-            <Image source={require('../../Image/avatar1.jpg')} style={{ borderRadius: dimension.width * 0.075, width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
-            <View style={{ paddingLeft: 10, textAlignVertical: 'center', paddingVertical: 5, flexDirection: 'column', justifyContent: 'space-between' }}>
+        <View >
+            <TouchableOpacity
+                style={{ paddingTop: dimension.height * 0.02, paddingBottom: 6, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: '#6E7077' }}
+                onPress={() => { navigation.navigate('QueenChat') }}
+            >
+                <Image source={require('../../Image/avatar1.jpg')} style={{ borderRadius: dimension.width * 0.075, width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
+                <View style={{ paddingLeft: 10, textAlignVertical: 'center', paddingVertical: 5, flexDirection: 'column', justifyContent: 'space-between' }}>
 
-                <View style = {{flexDirection : 'row'}}>
-                    <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Royaltydating
-                    </Text>
-                    <Image source={require('../../Image/goldmark.png')} style = {{marginTop : -dimension.height * 0.01 ,marginLeft : dimension.width * 0.01, width : dimension.width * 0.08, height : dimension.width * 0.08,}}/>
+                    <View style={{ flexDirection: 'row' }}>
+                        <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Royaltydating
+                        </Text>
+                        <Image source={require('../../Image/goldmark.png')} style={{ marginTop: -dimension.height * 0.01, marginLeft: dimension.width * 0.01, width: dimension.width * 0.08, height: dimension.width * 0.08, }} />
+                    </View>
+
+                    <Text style={{ color: '#6E7077' }}>Welcome to Royaltydating</Text>
+
                 </View>
+                <Text style={{ color: '#6E7077', marginLeft: dimension.width * 0.15, marginTop: dimension.height * 0.05 }}>28 min ago</Text>
+            </TouchableOpacity>
 
-                <Text style={{ color: '#6E7077' }}>Welcome to Royaltydating</Text>
-
-            </View>
-            <Text style={{ color: '#6E7077', marginLeft: dimension.width * 0.15, marginTop: dimension.height * 0.05 }}>28 min ago</Text>
         </View>
     );
     const renderItem = ({ item }) => (
@@ -83,20 +89,14 @@ const Queen = () => {
         }}>
 
 
-            <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
+            <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.85, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                 />
             </SafeAreaView>
-            <View style={{ backgroundColor: 'white', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.8, borderRadius: dimension.width * 0.2, borderWidth: 0, borderColor: '#E63A96' }}>
-                {/* <Button1 title={"LET'S GO"}/> */}
-                <Image style={{ position: 'absolute', marginTop: -dimension.height * 0.04 }} source={require('../../Image/footer.png')}>
-
-                </Image>
-            </View>
-
+            
 
         </View>
     );

@@ -83,19 +83,14 @@ const Services = ({navigation}) => {
             height: '100%'
         }}>
 
-            <SafeAreaView style={{ paddingTop: 50, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
+            <SafeAreaView style={{ paddingTop: 50, width: dimension.width * 0.9, height: dimension.height * 0.85, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}
                     renderItem={renderItem}
                     keyExtractor={item => item.id}
                 />
             </SafeAreaView>
-            <View style={{ backgroundColor: 'white', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.8, borderRadius: dimension.width * 0.2, borderWidth: 0, borderColor: '#E63A96' }}>
-                {/* <Button1 title={"LET'S GO"}/> */}
-                <Image style={{ position: 'absolute', marginTop: -dimension.height * 0.04 }} source={require('../../Image/footer.png')}>
-
-                </Image>
-            </View>
+           
 
 
         </View>
