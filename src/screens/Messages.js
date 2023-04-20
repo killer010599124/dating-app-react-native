@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Messages = () => {
+const Messages = ({ navigation }) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,17 +55,23 @@ const Messages = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.02,paddingBottom : 6, flexDirection: 'row', borderBottomWidth : 0.5, borderColor : '#6E7077' }}>
-            <Image source={require('../../Image/avatar1.jpg')} style={{borderRadius : dimension.width * 0.075, width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
-            <View style={{ paddingLeft: 10, textAlignVertical: 'center',paddingVertical: 5, flexDirection: 'column', justifyContent: 'space-between' }}>
+        <View >
+            <TouchableOpacity
+                style={{ paddingTop: dimension.height * 0.02, paddingBottom: 6, flexDirection: 'row', borderBottomWidth: 0.5, borderColor: '#6E7077' }}
+                onPress={() =>{navigation.navigate('ChatField')}}
+           >
+                <Image source={require('../../Image/avatar1.jpg')} style={{ borderRadius: dimension.width * 0.075, width: dimension.width * 0.15, height: dimension.width * 0.15 }} />
+                <View style={{ paddingLeft: 10, textAlignVertical: 'center', paddingVertical: 5, flexDirection: 'column', justifyContent: 'space-between' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Royaltydating
+                    <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Royaltydating
 
-                </Text>
-                <Text style={{ color: '#6E7077' }}>Welcome to Royaltydating</Text>
-                
-            </View>
-            <Text style={{ color: '#6E7077', marginLeft : dimension.width*0.15, marginTop:dimension.height * 0.05 }}>28 min ago</Text>
+                    </Text>
+                    <Text style={{ color: '#6E7077' }}>Welcome to Royaltydating</Text>
+
+                </View>
+                <Text style={{ color: '#6E7077', marginLeft: dimension.width * 0.15, marginTop: dimension.height * 0.05 }}>28 min ago</Text>
+
+            </TouchableOpacity>
         </View>
     );
     const renderItem = ({ item }) => (
@@ -79,7 +85,7 @@ const Messages = () => {
             height: '100%'
         }}>
 
-            
+
             <SafeAreaView style={{ paddingTop: 20, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}

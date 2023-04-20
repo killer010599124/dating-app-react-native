@@ -5,7 +5,7 @@ import { View, Image, Text, StyleSheet, Dimensions, ImageBackground } from "reac
 import Users from "../../fakedata/users.json";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';
-const Broadcast = () => {
+const Broadcast = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -17,7 +17,15 @@ const Broadcast = () => {
             //   Dimensions.removeEventListener('change', onChange);
         };
     });
+    useEffect(() => {
 
+        var oneSec = setTimeout(() => {
+            
+            navigation.navigate("Main");
+        }, 3000);
+
+        // clearTimeout(oneSec)
+    }, []);
 
 
     return (

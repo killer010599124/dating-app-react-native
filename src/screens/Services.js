@@ -6,7 +6,7 @@ import { Button } from '../components';
 import { Slider } from 'react-native';
 // import Slider from '@react-native-community/slider';
 
-const Services = () => {
+const Services = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -55,16 +55,21 @@ const Services = () => {
 
     ];
     const Item = ({ title }) => (
-        <View style={{ paddingTop: dimension.height * 0.03,paddingLeft : dimension.width * 0.1 ,  flexDirection: 'row' }}>
-            <Image source={require('../../Image/services.png')} style={{ width: dimension.width * 0.2, height: dimension.width * 0.2 }} />
-            <Text style={{position : 'absolute', marginTop : dimension.width * 0.1,marginLeft : dimension.width * 0.115, color: '#E53A96', fontSize: 14, fontWeight: 'bold', textAlign : 'center' }}>50%{'\n'}Cash Back</Text>
-            <View style={{ paddingLeft: dimension.width * 0.1, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
+        <View >
+            <TouchableOpacity
+             onPress={() => {navigation.navigate('OfferDetails')}}
+             style={{ paddingTop: dimension.height * 0.03, paddingLeft: dimension.width * 0.1, flexDirection: 'row' }}>
+                <Image source={require('../../Image/services.png')} style={{ width: dimension.width * 0.2, height: dimension.width * 0.2 }} />
+                <Text style={{ position: 'absolute', marginTop: dimension.width * 0.1, marginLeft: dimension.width * 0.115, color: '#E53A96', fontSize: 14, fontWeight: 'bold', textAlign: 'center' }}>50%{'\n'}Cash Back</Text>
+                <View style={{ paddingLeft: dimension.width * 0.1, textAlignVertical: 'center', flexDirection: 'column', justifyContent: 'center' }}>
 
-                <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Bookmyshow</Text>
-                <Text style={{ color: '#E53A96', fontSize: 12, fontWeight: 'bold' }}>Movie tickets</Text>
-                <Text style={{ color: '#6E7077' }}>For couple enter only</Text>
-            </View>
-            
+                    <Text style={{ color: 'black', fontSize: 18, fontWeight: 'bold' }}>Bookmyshow</Text>
+                    <Text style={{ color: '#E53A96', fontSize: 12, fontWeight: 'bold' }}>Movie tickets</Text>
+                    <Text style={{ color: '#6E7077' }}>For couple enter only</Text>
+                </View>
+            </TouchableOpacity>
+
+
         </View>
     );
     const renderItem = ({ item }) => (
@@ -78,7 +83,6 @@ const Services = () => {
             height: '100%'
         }}>
 
-            
             <SafeAreaView style={{ paddingTop: 50, width: dimension.width * 0.9, height: dimension.height * 0.8, alignSelf: 'center' }}>
                 <FlatList
                     data={DATA}

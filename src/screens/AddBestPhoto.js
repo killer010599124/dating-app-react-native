@@ -77,7 +77,7 @@ const Choice = ({ children, selectPhoto }) => (
 
     </View>
 );
-const AddBestPhoto = () => {
+const AddBestPhoto = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -138,7 +138,7 @@ const AddBestPhoto = () => {
                 </TouchableOpacity>
             </Modal>
             <View style={{ backgroundColor: 'white', position: 'absolute', alignSelf: 'center', marginTop: dimension.height * 0.75 }}>
-                <Button title={'Continue'} />
+                <Button title={'Continue'} onPress={() =>{navigation.navigate('SendingPhoto')}}/>
             </View>
 
         </View>

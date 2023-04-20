@@ -6,7 +6,7 @@ import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
 import { Button } from '../components';
-const VerifyCode = () => {
+const VerifyCode = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -53,7 +53,7 @@ const VerifyCode = () => {
                 })}
             </View>
             <View style={{ position: 'absolute', alignSelf: 'center', marginTop: 300 }}>
-                <Button title={'Continue'} />
+                <Button title={'Continue'} onPress={() =>{navigation.navigate('AddBestPhoto')}}/>
             </View>
 
 

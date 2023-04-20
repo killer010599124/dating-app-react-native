@@ -6,7 +6,7 @@ import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
 import { Button } from '../components';
-const SignUpp = () => {
+const SignUpp = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -40,7 +40,7 @@ const SignUpp = () => {
                     placeholderTextColor="black" selectionColor="#000" keyboardType="email-address"
                     onSubmitEditing={() => this.password.focus()} />
                 <Text style={{ paddingTop: 20, fontSize: 12, width: dimension.width * 0.7 }}>By continuing, you agree to our Terms of Service & Privacy Policy.</Text>
-                <Button title={'Next'} />
+                <Button title={'Next'} onPress={() =>{navigation.navigate('CreatePassword')}}/>
             </View>
 
             <View style={{ marginTop: dimension.height * 0 }}>
@@ -48,11 +48,11 @@ const SignUpp = () => {
                 <SocialConnect />
             </View>
             <View style={styles.signupTextCont}>
-                <Text style={styles.signupText}>Not a User? </Text>
+                <Text style={styles.signupButton}>Do you have an account? </Text>
                 <TouchableOpacity
-                // onPress={this.signup}
+                onPress={() =>{navigation.navigate('SignIn')}}
                 >
-                    <Text style={styles.signupButton}>Register here</Text></TouchableOpacity>
+                    <Text style={styles.signupText}>Login</Text></TouchableOpacity>
             </View>
         </View>
     )

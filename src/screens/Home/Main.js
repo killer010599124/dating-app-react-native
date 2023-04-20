@@ -5,7 +5,7 @@ import Modal from 'react-native-modal';
 import Button1 from '../../components/Button1';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Button } from '../../components';
-const MainHome = () => {
+const MainHome = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const [visibleModel, setVisibleModel] = useState(null);
     const [visibleHeart, setVisibleHeart] = useState(null);
@@ -40,7 +40,7 @@ const MainHome = () => {
                 <TextInput style={{ ...styles.inputBox, height: 40, width: dimension.width * 0.8, }} placeholder="Write something here"
                     placeholderTextColor="black" selectionColor="#000"
                 />
-                <Button title={'Send Admire!'} onPress={() => { setVisibleModel(null); }} />
+                <Button title={'Send Admire!'} onPress={() => { setVisibleModel(null); navigation.navigate('Request')}} />
                 <Text style={{ position: 'absolute', fontWeight: 'bold', textAlign: 'center', alignSelf: 'center', width: dimension.width * 0.8, marginTop: dimension?.height * 0.4, color: 'black', fontSize: 16, }}>
                     I changed my mind
                 </Text>
@@ -60,7 +60,7 @@ const MainHome = () => {
                 <TextInput style={{ ...styles.inputBox, height: 40, width: dimension.width * 0.8, }} placeholder="Write something here"
                     placeholderTextColor="black" selectionColor="#000"
                 />
-                <Button title={'Send Admire!'} onPress={() => { setVisibleHeart(null) ;setVisibleHeartModel(null)}} />
+                <Button title={'Send Admire!'} onPress={() => { setVisibleHeart(null); setVisibleHeartModel(null); navigation.navigate('Request')}} />
                 <Text style={{ position: 'absolute', fontWeight: 'bold', textAlign: 'center', alignSelf: 'center', width: dimension.width * 0.8, marginTop: dimension?.height * 0.35, color: 'black', fontSize: 16, }}>
                     I changed my mind
                 </Text>

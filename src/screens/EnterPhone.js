@@ -6,7 +6,7 @@ import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
 import { Button } from '../components';
-const EnterPhone = () => {
+const EnterPhone = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -40,7 +40,7 @@ const EnterPhone = () => {
                     placeholderTextColor="black" selectionColor="#000"
                     secureTextEntry={true} />
                
-                <Button title={'Continue'} />
+                <Button title={'Continue'} onPress={() => {navigation.navigate('VerifyCode')}} />
                 <Text style={{ paddingTop: 20,textAlign: 'center', fontSize: 12, width: dimension.width * 0.7 }}>Need Help? support@A-Z.gmail.com For more information.Please contact us</Text>
             </View>
 

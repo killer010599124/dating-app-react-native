@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import { StyleSheet, ScrollView, View, Dimensions, Text, Image, TouchableOpacity } from 'react-native';
 import { ActivityIndicator } from 'react-native';
 
-const HomeCarousel = () => {
+const HomeCarousel = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -22,9 +22,12 @@ const HomeCarousel = () => {
 
     const onSlideChange = useCallback(() => {
         // Calculate newIndex here and use it to update your state and to scroll to the new slide
-        const newIndex =
-            selectedIndex === carouselImages.length - 1 ? 0 : selectedIndex + 1;
-
+        if(selectedIndex === carouselImages.length-1){
+            navigation.navigate("SignIn");
+        }
+        // const newIndex =
+        //     selectedIndex === carouselImages.length - 1 ? 0 : selectedIndex + 1;
+        const newIndex = selectedIndex +1 ;
         setSelectedIndex(newIndex);
 
         scrollRef?.current?.scrollTo({
@@ -35,7 +38,7 @@ const HomeCarousel = () => {
     }, [selectedIndex]);
 
     const startInterval = useCallback(() => {
-        intervalId = setInterval(onSlideChange, 3000);
+        intervalId = setInterval(onSlideChange, 2000);
     }, [onSlideChange]);
 
     useEffect(() => {
@@ -58,9 +61,9 @@ const HomeCarousel = () => {
     };
 
     const carouselImages = [
-        { url: require('../../Image/intro.png'), title: "Find Your Special Someone", content: "With our new exciting features With our new exciting features" },
-        { url: require('../../Image/intro.png'), title: "More Profiles, More Dates", content: "With our new exciting features With our new exciting features" },
-        { url: require('../../Image/intro.png'), title: "Get Exicited Offers", content: "With our new exciting features With our new exciting features" }
+        { url: require('../../Image/intro.png'), title: "Find Your Special Someone", content: "With our new exciting features" },
+        { url: require('../../Image/intro.png'), title: "More Profiles, More Dates", content: "With our new exciting features" },
+        { url: require('../../Image/intro.png'), title: "Get Exicited Offers", content: "With our new exciting features" }
     ];
 
     const setIndex = event => {

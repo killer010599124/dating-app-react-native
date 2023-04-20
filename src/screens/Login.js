@@ -6,7 +6,7 @@ import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -35,7 +35,7 @@ const SignIn = () => {
             </Text> */}
             <Subject title={'Welcome Back!'} content={"Let's go for explore continues"} />
             
-            <Form type="Login"  />
+            <Form type="Login" func = {() => {navigation.navigate('VerifyCode')}} />
             <TouchableOpacity>
                 <Text style={{...styles.forgotButton, textAlign:'center',alignSelf : 'center', marginTop:dimension.height*0.12}}>Forgot password?</Text>
             </TouchableOpacity>
@@ -43,7 +43,7 @@ const SignIn = () => {
             <View style={styles.signupTextCont}>
                 <Text style={styles.signupText}>Not a User? </Text>
                 <TouchableOpacity
-                // onPress={this.signup}
+                onPress={() =>{navigation.navigate('SignUp')}}
                 >
                     <Text style={styles.signupButton}>Register here</Text></TouchableOpacity>
             </View>

@@ -6,7 +6,7 @@ import { Button } from '../components';
 import  {  Slider  }  from  'react-native' ;
 // import Slider from '@react-native-community/slider';
 
-const MakeOffer = () => {
+const MakeOffer = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
 
     const onChange = () => {
@@ -65,7 +65,7 @@ const MakeOffer = () => {
             </View>
             <View style={{ position: 'absolute', marginTop: dimension.height * 0.7, alignSelf: 'center' }}>
 
-                <Button title={'Search'} />
+                <Button title={'Search'} onPress={() => {navigation.navigate('SearchResults')}}/>
             </View>
             <View style={{ backgroundColor: 'white', height: dimension.height * 0.1, width: dimension.width * 0.8, alignSelf: 'center', position: 'absolute', marginTop: dimension.height * 0.8, borderRadius: dimension.width * 0.2, borderWidth: 0, borderColor: '#E63A96' }}>
                 {/* <Button1 title={"LET'S GO"}/> */}

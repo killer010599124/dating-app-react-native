@@ -6,7 +6,7 @@ import Form from '../components/SignInForm';
 import Subject from '../components/Subject';
 import SocialConnect from '../components/SocialConnect';
 import { Button } from '../components';
-const CreatePassword = () => {
+const CreatePassword = ({navigation}) => {
     // signup() {
     //     Actions.signup()
     // }
@@ -44,7 +44,7 @@ const CreatePassword = () => {
                     placeholderTextColor="black" selectionColor="#000"
                     secureTextEntry={true} />
                 <Text style={{ paddingTop: 20, fontSize: 12, width: dimension.width * 0.7 }}>Show Password</Text>
-                <Button title={'Next'} />
+                <Button title={'Next'} onPress={() =>{navigation.navigate('EnterPhone')}} />
             </View>
 
 

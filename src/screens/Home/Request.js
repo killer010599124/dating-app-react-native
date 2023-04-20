@@ -4,7 +4,7 @@ import { View, Image, Text, StyleSheet, Dimensions, ImageBackground } from "reac
 
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../../components/Button1';
-const Request = () => {
+const Request = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -50,7 +50,7 @@ const Request = () => {
             </Text>
             
             <View style = {{alignSelf : 'center',position : 'absolute',marginTop:dimension.height*0.8}}>
-                <Button1 title={"Let’s find another"}/>
+                <Button1 title={"Let’s find another"} onPress={() => {}}/>
             </View>
             
         </View>

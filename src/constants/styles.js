@@ -4,6 +4,7 @@ const Header = {
   headerTintColor: Colors.primaryColor,
   headerStyle: {
     backgroundColor: "#FFF",
+   
   },
   headerTitleStyle: {
     fontWeight: "800",

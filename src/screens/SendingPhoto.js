@@ -5,7 +5,7 @@ import { View, Image, Text, StyleSheet, Dimensions, ImageBackground } from "reac
 import Users from "../../fakedata/users.json";
 import { LinearGradient } from 'expo-linear-gradient';
 import Button1 from '../components/Button1';
-const SendingPhoto = () => {
+const SendingPhoto = ({navigation}) => {
     const [dimension, setDimension] = useState(Dimensions.get('window'));
     const onChange = () => {
         setDimension(Dimensions.get('window'));
@@ -61,7 +61,7 @@ const SendingPhoto = () => {
                 "You've got an amazing story now you are in Royaltydating soo tell us what you're looking for in your future partner.
             </Text>
             <View style = {{alignSelf : 'center',position : 'absolute',marginTop:dimension.height*0.8}}>
-                <Button1 title={"LET'S GO"}/>
+                <Button1 title={"LET'S GO"} onPress={() =>{navigation.navigate('Broadcast')}}  />
             </View>
             
         </View>

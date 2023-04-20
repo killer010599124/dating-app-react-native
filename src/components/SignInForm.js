@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import Button from './Button';
 // import { Actions } from 'react-native-router-flux';
-const Form  = () => {
+const Form  = ({func}) => {
 
     
     const [dimension, setDimension] = useState(Dimensions.get('window'));
@@ -70,7 +70,7 @@ const Form  = () => {
                     placeholderTextColor="black" 
                 />
                 
-                <Button title={'Sign In'} />
+                <Button title={'Sign In'} onPress={() => {func()}} />
             </View>
         )
     
