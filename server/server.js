@@ -1,31 +1,41 @@
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-const express = require('express');
-const Cors = require('cors');
+// Loads environment variables
+dotenv.config();
 
-// App Config
+// Connect database
+const db = require("./models");
+db.sequelize
+  .sync({ alter: true })
+  .then(() => {
+    console.log("Synced db.");
+  })
+  .catch((err) => {
+    console.log("Failed to sync db: " + err.message);
+  });
 
+// Creates a new instance of the Express.js framework and assigns it to the app constant.
 const app = express();
-const port = process.env.port || 8001;
 
-// midde ware
-app.use(express.json())
-app.use(Cors());
+// Middleware
+app.use(cors());
+app.use(express.json()); // parse requests of content-type - application/json
+app.use(express.urlencoded({ extended: true })); // parse requests of content-type - application/x-www-form-urlencoded
 
-// DB config
+// simple route
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to jk application." });
+});
 
-//API Endpoint
 
-app.get('/', (req, res) => res.status(200).send(" Programmers!!!"));
+require("./routes/users.routes")(app);
 
-app.post('/api/tinder',(req, res) =>{
-    const dbCard = req.body;
-    
-})
 
-app.get('/api/tinder',(req, res) =>{
-    
-})
 
-//Listener
-
-app.listen(port, () => console.log(`listening on localhost: ${port}`))
+// set port, listen for requests
+const PORT = process.env.API_PORT || 4000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
